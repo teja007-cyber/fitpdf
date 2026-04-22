@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next'
 
-const baseUrl = process.env.NEXT_PUBLIC_URL || 'https://your-app.vercel.app'
+const baseUrl = 'https://fitpdf-mu.vercel.app'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
