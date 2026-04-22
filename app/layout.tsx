@@ -2,16 +2,20 @@ import type { Metadata } from 'next'
 import './globals.css'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
 
-const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-XXXXXXXXXX'
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-EC8PYTQ2HD'
 
 export const metadata: Metadata = {
   title: 'FitPDF - Make Your PDF Upload-Ready',
   description: 'Optimize your PDF for WhatsApp, Email, and job portals instantly. Free online PDF compression tool.',
   keywords: ['PDF', 'compress', 'optimize', 'WhatsApp', 'Email', 'job portal'],
+  metadataBase: new URL('https://fitpdf-mu.vercel.app'),
   openGraph: {
     title: 'FitPDF - Make Your PDF Upload-Ready',
     description: 'Optimize your PDF for WhatsApp, Email, and job portals instantly. Free online PDF compression tool.',
     type: 'website',
+  },
+  other: {
+    'google-site-verification': 'google2f828285b496f153',
   },
 }
 
