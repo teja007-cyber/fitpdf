@@ -6,6 +6,38 @@
 **Type:** Web Application (SaaS)
 **Core Functionality:** A simple tool to optimize PDFs for specific upload size limits (WhatsApp, Email, Job portals)
 **Target Users:** Anyone needing to reduce PDF file size for upload constraints
+**Live URL:** https://fitpdf.vercel.app
+
+## 2. SEO & Indexing
+
+### Google Setup Complete
+
+All SEO files are bundled:
+
+- `app/sitemap.ts` - XML sitemap for Google
+- `app/robots.ts` - Robots.txt configuration  
+- `components/GoogleAnalytics.tsx` - GA4 tracking
+- `app/layout.tsx` - Meta tags, OpenGraph, keywords
+- `.env.local` - Configuration template
+
+### How to Connect Google Services
+
+#### 1. Google Analytics (analytics.google.com)
+
+1. Create account → Get Measurement ID (G-XXXXXXXXXX)
+2. Add to Vercel: `NEXT_PUBLIC_GA_ID` = your ID
+3. Add to Vercel: `NEXT_PUBLIC_URL` = your-app.vercel.app
+4. Redeploy
+
+#### 2. Google Search Console (search.google.com/search-console)
+
+1. Add property: https://your-app.vercel.app
+2. Vercel auto-verifies
+3. Submit sitemap.xml
+
+#### 3. Check Indexing
+
+Search: `site:your-app.vercel.app`
 
 ---
 
