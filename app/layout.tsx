@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
+import AdSense from '@/components/AdSense'
 
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-EC8PYTQ2HD'
+const ADSENSE_CLIENT_ID = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || 'ca-pub-xxxxxxxxxxxxxxx'
 
 export const metadata: Metadata = {
   title: 'FitPDF - Make Your PDF Upload-Ready',
@@ -27,6 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <AdSense caPub={ADSENSE_CLIENT_ID} />
         {children}
         <GoogleAnalytics GA_MEASUREMENT_ID={GA_MEASUREMENT_ID} />
       </body>
