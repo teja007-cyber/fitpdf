@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
+import { Analytics } from '@vercel/analytics/react'
 
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-EC8PYTQ2HD'
 
@@ -14,9 +15,6 @@ export const metadata: Metadata = {
     description: 'Optimize your PDF for WhatsApp, Email, and job portals instantly. Free online PDF compression tool.',
     type: 'website',
   },
-  verification: {
-    google: 'google2f828285b496f153',
-  },
 }
 
 export default function RootLayout({
@@ -28,9 +26,9 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta name="google-site-verification" content="R2D0qVlTAwKMEPO2YGFxXXQduNr50CqIZtEJmn05-yM" />
-        <meta name="vercel-web-analytics" content="R2D0qVlTAwKMEPO2YGFxXXQduNr50CqIZtEJmn05-yM" />
       </head>
       <body>
+        <Analytics />
         {children}
         <GoogleAnalytics GA_MEASUREMENT_ID={GA_MEASUREMENT_ID} />
       </body>
