@@ -28,6 +28,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta name="google-site-verification" content="R2D0qVlTAwKMEPO2YGFxXXQduNr50CqIZtEJmn05-yM" />
+        <meta name="vercel-web-analytics" content="R2D0qVlTAwKMEPO2YGFxXXQduNr50CqIZtEJmn05-yM" />
       </head>
       <body>
         {children}
