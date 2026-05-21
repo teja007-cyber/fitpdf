@@ -3,6 +3,7 @@
 import { useState, useCallback, useRef } from 'react'
 import { Upload, FileText, X, CheckCircle, ArrowDown, Loader2, Mail, Briefcase, Smartphone, Settings } from 'lucide-react'
 import clsx from 'clsx'
+import Link from 'next/link'
 import AdBanner from '@/components/AdBanner'
 
 const AD_CLIENT = process.env.NEXT_PUBLIC_AD_CLIENT || ''
@@ -367,7 +368,12 @@ export default function Home() {
 
         {AD_CLIENT && <AdBanner caPub={AD_CLIENT} adSlot={AD_SLOT} format="horizontal" />}
         <footer className="text-center text-text-muted text-sm">
-          <p>FitPDF - Fast, free, no signup required</p>
+          <p>FitPDF &mdash; Fast, free, no signup required</p>
+          <div className="flex justify-center gap-6 mt-3">
+            <Link href="/privacy" className="hover:text-text-secondary transition-colors">Privacy</Link>
+            <Link href="/terms" className="hover:text-text-secondary transition-colors">Terms</Link>
+            <Link href="/contact" className="hover:text-text-secondary transition-colors">Contact</Link>
+          </div>
         </footer>
       </div>
     </main>
