@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import GoogleAnalytics from '@/components/GoogleAnalytics'
+import ConsentManager from '@/components/ConsentManager'
 import { Analytics } from '@vercel/analytics/react'
 
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-EC8PYTQ2HD'
@@ -26,11 +26,16 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta name="google-site-verification" content="R2D0qVlTAwKMEPO2YGFxXXQduNr50CqIZtEJmn05-yM" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{'ad_user_data':'denied','ad_personalization':'denied','ad_storage':'denied','analytics_storage':'denied','wait_for_update':500});`,
+          }}
+        />
       </head>
       <body>
         <Analytics />
         {children}
-        <GoogleAnalytics GA_MEASUREMENT_ID={GA_MEASUREMENT_ID} />
+        <ConsentManager GA_MEASUREMENT_ID={GA_MEASUREMENT_ID} />
       </body>
     </html>
   )
