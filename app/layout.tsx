@@ -4,6 +4,7 @@ import ConsentManager from '@/components/ConsentManager'
 import { Analytics } from '@vercel/analytics/react'
 
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-EC8PYTQ2HD'
+const AD_CLIENT = process.env.NEXT_PUBLIC_AD_CLIENT || ''
 
 export const metadata: Metadata = {
   title: 'FitPDF - Make Your PDF Upload-Ready',
@@ -35,7 +36,7 @@ export default function RootLayout({
       <body>
         <Analytics />
         {children}
-        <ConsentManager GA_MEASUREMENT_ID={GA_MEASUREMENT_ID} />
+        <ConsentManager GA_MEASUREMENT_ID={GA_MEASUREMENT_ID} AD_CLIENT={AD_CLIENT} />
       </body>
     </html>
   )

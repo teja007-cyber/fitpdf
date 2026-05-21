@@ -7,10 +7,16 @@ declare global {
   interface Window {
     gtag: (...args: unknown[]) => void
     dataLayer: unknown[]
+    adsbygoogle: unknown[]
   }
 }
 
-export default function ConsentManager({ GA_MEASUREMENT_ID }: { GA_MEASUREMENT_ID: string }) {
+interface ConsentManagerProps {
+  GA_MEASUREMENT_ID: string
+  AD_CLIENT?: string
+}
+
+export default function ConsentManager({ GA_MEASUREMENT_ID, AD_CLIENT }: ConsentManagerProps) {
   const [consent, setConsent] = useState<'granted' | 'denied' | null>(null)
 
   useEffect(() => {
@@ -61,13 +67,21 @@ export default function ConsentManager({ GA_MEASUREMENT_ID }: { GA_MEASUREMENT_I
               gtag('config', '${GA_MEASUREMENT_ID}');
             `}
           </Script>
+          {AD_CLIENT && (
+            <Script
+              async
+              src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${AD_CLIENT}`}
+              strategy="afterInteractive"
+              crossOrigin="anonymous"
+            />
+          )}
         </>
       )}
       {consent === null && (
         <div className="fixed bottom-0 left-0 right-0 bg-white border-t shadow-lg p-4 z-50">
           <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center gap-4">
             <p className="text-sm text-gray-600 flex-1">
-              We use cookies to improve your experience and analyze site usage.
+              We use cookies to improve your experience, show ads, and analyze site usage.
               By clicking &ldquo;Accept All&rdquo;, you consent to our use of cookies.
             </p>
             <div className="flex gap-2 shrink-0">

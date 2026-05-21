@@ -3,6 +3,10 @@
 import { useState, useCallback, useRef } from 'react'
 import { Upload, FileText, X, CheckCircle, ArrowDown, Loader2, Mail, Briefcase, Smartphone, Settings } from 'lucide-react'
 import clsx from 'clsx'
+import AdBanner from '@/components/AdBanner'
+
+const AD_CLIENT = process.env.NEXT_PUBLIC_AD_CLIENT || ''
+const AD_SLOT = process.env.NEXT_PUBLIC_AD_SLOT || ''
 
 interface Platform {
   id: string
@@ -179,6 +183,7 @@ export default function Home() {
           </p>
         </header>
 
+        {AD_CLIENT && <AdBanner caPub={AD_CLIENT} adSlot={AD_SLOT} format="horizontal" />}
         <section className="flex flex-col gap-6">
           <div
             className={clsx(
@@ -360,6 +365,7 @@ export default function Home() {
           )}
         </section>
 
+        {AD_CLIENT && <AdBanner caPub={AD_CLIENT} adSlot={AD_SLOT} format="horizontal" />}
         <footer className="text-center text-text-muted text-sm">
           <p>FitPDF - Fast, free, no signup required</p>
         </footer>
