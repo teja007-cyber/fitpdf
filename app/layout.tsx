@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <meta name="google-site-verification" content="R2D0qVlTAwKMEPO2YGFxXXQduNr50CqIZtEJmn05-yM" />
+        <meta name="google-site-verification" content="Re1YnfDvswmUi2TL0uOMNWSRdRrnqKOVmslBXJXTywE" />
         <script
           dangerouslySetInnerHTML={{
             __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{'ad_user_data':'denied','ad_personalization':'denied','ad_storage':'denied','analytics_storage':'denied','wait_for_update':500});`,
