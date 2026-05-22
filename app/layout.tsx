@@ -28,6 +28,22 @@ export default function RootLayout({
       <head>
         <meta name="google-site-verification" content="Re1YnfDvswmUi2TL0uOMNWSRdRrnqKOVmslBXJXTywE" />
         <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              "name": "FitPDF",
+              "url": "https://fitpdf-mu.vercel.app",
+              "description": "Free online PDF compression tool. Optimize PDFs for WhatsApp, Email, and job portals instantly. No signup required.",
+              "applicationCategory": "Multimedia",
+              "operatingSystem": "All",
+              "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+              "author": { "@type": "Organization", "name": "FitPDF" }
+            })
+          }}
+        />
+        <script
           dangerouslySetInnerHTML={{
             __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{'ad_user_data':'denied','ad_personalization':'denied','ad_storage':'denied','analytics_storage':'denied','wait_for_update':500});`,
           }}
