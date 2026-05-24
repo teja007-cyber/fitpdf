@@ -372,6 +372,7 @@ export default function Home() {
           <div className="flex justify-center gap-6 mt-3">
             <Link href="/privacy" className="hover:text-text-secondary transition-colors">Privacy</Link>
             <Link href="/terms" className="hover:text-text-secondary transition-colors">Terms</Link>
+            <Link href="/about" className="hover:text-text-secondary transition-colors">About</Link>
             <Link href="/contact" className="hover:text-text-secondary transition-colors">Contact</Link>
           </div>
         </footer>
