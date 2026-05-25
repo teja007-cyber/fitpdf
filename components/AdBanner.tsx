@@ -11,33 +11,30 @@ interface AdBannerProps {
 
 export default function AdBanner({ caPub, adSlot, format = 'auto', className = '' }: AdBannerProps) {
   const insRef = useRef<HTMLModElement>(null)
+  const pushed = useRef(false)
 
   useEffect(() => {
-    if (!caPub || !adSlot) return
-    try {
-      ;(window.adsbygoogle = window.adsbygoogle || []).push({})
-    } catch {}
+    if (!caPub || !adSlot || pushed.current) return
+    const timer = setTimeout(() => {
+      try {
+        ;(window.adsbygoogle = window.adsbygoogle || []).push({})
+        pushed.current = true
+      } catch {}
+    }, 200)
+    return () => clearTimeout(timer)
   }, [caPub, adSlot])
 
   if (!caPub || !adSlot) return null
-
-  const style: React.CSSProperties =
-    format === 'horizontal' ? { display: 'block' } :
-    format === 'vertical' ? { display: 'block' } :
-    format === 'rectangle' ? { display: 'block' } :
-    { display: 'block' }
-
-  const dataFormat = format === 'auto' ? 'auto' : format
 
   return (
     <div className={`w-full flex justify-center py-4 ${className}`}>
       <ins
         ref={insRef}
         className="adsbygoogle"
-        style={style}
+        style={{ display: 'block' }}
         data-ad-client={caPub}
         data-ad-slot={adSlot}
-        data-ad-format={dataFormat}
+        data-ad-format={format === 'auto' ? 'auto' : format}
         data-full-width-responsive="true"
       />
     </div>
