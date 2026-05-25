@@ -7,7 +7,7 @@ import Link from 'next/link'
 import AdBanner from '@/components/AdBanner'
 
 const AD_CLIENT = process.env.NEXT_PUBLIC_AD_CLIENT || ''
-const AD_SLOT = process.env.NEXT_PUBLIC_AD_SLOT || ''
+const AD_SLOT = process.env.NEXT_PUBLIC_AD_SLOT || '8676706568'
 
 interface Platform {
   id: string
